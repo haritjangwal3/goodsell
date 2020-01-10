@@ -1,0 +1,13 @@
+{
+    "Home" : "home",
+    "Tools" : {
+        "My Tools" : "tools",
+        "Tools 1" : "tools/first",
+        "Tools 2" : "tools/second",
+        "Seperator" : "",
+        "Tools 3" : "tools/third"
+    },
+    "Google" : "https://www.google.com",
+    "Login" : "register/login",
+    "Logout" : "register/logout"
+}

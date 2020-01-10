@@ -1,0 +1,140 @@
+object(DB)#6 (6) {
+    ["_pdo":"DB":private]=>
+    object(PDO)#7 (0) {
+    }
+    ["_query":"DB":private]=>
+    object(PDOStatement)#8 (1) {
+      ["queryString"]=>
+      string(23) "show columns from users"
+    }
+    ["__error":"DB":private]=>
+    bool(false)
+    ["_results":"DB":private]=>
+    array(8) {
+      [0]=>
+      object(stdClass)#9 (6) {
+        ["Field"]=>
+        string(2) "id"
+        ["Type"]=>
+        string(7) "int(11)"
+        ["Null"]=>
+        string(2) "NO"
+        ["Key"]=>
+        string(3) "PRI"
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(14) "auto_increment"
+      }
+      [1]=>
+      object(stdClass)#10 (6) {
+        ["Field"]=>
+        string(8) "username"
+        ["Type"]=>
+        string(12) "varchar(150)"
+        ["Null"]=>
+        string(2) "NO"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(0) ""
+      }
+      [2]=>
+      object(stdClass)#11 (6) {
+        ["Field"]=>
+        string(5) "email"
+        ["Type"]=>
+        string(12) "varchar(150)"
+        ["Null"]=>
+        string(2) "NO"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(0) ""
+      }
+      [3]=>
+      object(stdClass)#12 (6) {
+        ["Field"]=>
+        string(8) "password"
+        ["Type"]=>
+        string(12) "varchar(150)"
+        ["Null"]=>
+        string(2) "NO"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(0) ""
+      }
+      [4]=>
+      object(stdClass)#13 (6) {
+        ["Field"]=>
+        string(5) "fname"
+        ["Type"]=>
+        string(12) "varchar(150)"
+        ["Null"]=>
+        string(2) "NO"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(0) ""
+      }
+      [5]=>
+      object(stdClass)#14 (6) {
+        ["Field"]=>
+        string(5) "lname"
+        ["Type"]=>
+        string(12) "varchar(150)"
+        ["Null"]=>
+        string(2) "NO"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(0) ""
+      }
+      [6]=>
+      object(stdClass)#15 (6) {
+        ["Field"]=>
+        string(3) "acl"
+        ["Type"]=>
+        string(4) "text"
+        ["Null"]=>
+        string(3) "YES"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        NULL
+        ["Extra"]=>
+        string(0) ""
+      }
+      [7]=>
+      object(stdClass)#16 (6) {
+        ["Field"]=>
+        string(7) "deleted"
+        ["Type"]=>
+        string(10) "tinyint(4)"
+        ["Null"]=>
+        string(3) "YES"
+        ["Key"]=>
+        string(0) ""
+        ["Default"]=>
+        string(1) "0"
+        ["Extra"]=>
+        string(0) ""
+      }
+    }
+    ["_count":"DB":private]=>
+    int(8)
+    ["_lastInsertID":"DB":private]=>
+    string(1) "0"
+  }
+  
