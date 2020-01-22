@@ -51,44 +51,96 @@ class Router
         }
     }
 
-    public static function hasAccess($controller_name, $action_name= 'index'){
+    public static function hasAccess($controller_name, $action_name='index'){
+        $controller_name = strtolower($controller_name);
         $acl_file = file_get_contents(ROOT . DS . 'app' . DS . 'acl.json');
         $acl = json_decode($acl_file, true);
-        $current_user_acls = ["Guest"];
+        $current_user_acls = ["guest"];
         $grantAccess = false;
         if (strpos($action_name, 'Action') !== false){
             $action_name = str_replace("Action","", $action_name);
         }
         if(Session::exists(CURRENT_USER_SESSION_NAME)){
-            $current_user_acls[] = "LoggedIn";
+            $current_user_acls[] = "loggedIn";
             foreach(currentUser()->acls() as $a){
-                $current_user_acls[] = $a;
+                $current_user_acls[] = $a; // add other ACL's from the user table in DB.
             }
         }
 
         foreach($current_user_acls as $level){
             if(array_key_exists($level, $acl) && array_key_exists($controller_name, $acl[$level])){
-                
-                if(in_array($action_name, $acl[$level][$controller_name])){
-                }
                 if(in_array($action_name, $acl[$level][$controller_name]) || in_array("*", $acl[$level][$controller_name])){
                     $grantAccess = true;
                 break;
                 }
             }
         }
-
+        
         // check for denied
         foreach($current_user_acls as $level){
             if(isset($acl[$level]['denied'])){
                 $denied = $acl[$level]['denied'];
+                if(!empty($denied) ) {
+                    if(array_key_exists($controller_name, $denied)){
+                        if(in_array($action_name, $denied[$controller_name])){
+                            $grantAccess = false;
+                            break;
+                        }
+                    }
+                    
+                  }
             };
-            if(!empty($denied) && array_key_exists($controller_name, $denied) && in_array($action_name, $denied[$controller_name])){
-                $grantAccess = false;
+        }
+        return $grantAccess;
+    }
+
+    public static function getMenu($filename){
+        $menuArray = [];
+        $menu_acl_file = file_get_contents(ROOT . DS . 'app' . DS . 'menu_acl.json');
+        $acl_menu = json_decode($menu_acl_file, true);
+        foreach($acl_menu as $main_key => $sub_key){
+            if(is_array($sub_key)){
+                $sub = [];
+                foreach($sub_key as $key => $v){
+                    if($key == 'seperator' && !empty($sub)){
+                        $sub[$key] = '';
+                        continue;
+                    }
+                    if($finalkeySub = self::getLink($v)){
+                        $sub[$key] = $finalkeySub;
+                    }
+                }
+                if(!empty($sub)){
+                    $menuArray[$main_key] = $sub;
+                }
+            }
+            else {
+                if($finalkey = self::getLink($sub_key)){
+                    $menuArray[$main_key] = $finalkey;
+                }
             }
         }
+        
+        return $menuArray;
+    }
 
-        return $grantAccess;
-
+    private static function getLink($link){
+        //echo $link . '<br/>';
+        //check if the link is external --- using regular expression (RE) buildin function
+        if(preg_match('/https?:\/\//', $link) == 1) {
+            
+            return $link;
+        }
+        else {
+            $uAry = explode('/', $link);
+            $controller_name = ucwords($uAry[0]);
+            $action_name = (isset($uAry[1])) ? $uAry[1] : '';
+            $result = self::hasAccess($controller_name, $action_name);
+            //echo_p($link, $result);
+            if(self::hasAccess($controller_name, $action_name)){
+                return SROOT . $link;
+            }
+            return false;
+        }
     }
 }

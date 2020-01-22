@@ -21,4 +21,4 @@
     define('REMEMBER_ME_COOKIE_NAME', 'iVe4Awe4eN3dC42UbXjN4'); // cookie for loggd in user with remember me.
     define('REMEMBER_COOKIE_EXPIRY', 2592000); // 30 days in sec for cookie to 5tg
     define('ACCESS_RESTRICTED', 'Restricted'); // Controller redirect for restricted page -  ACL
-    
+    define('MENU_BRAND', 'Goodsell');

@@ -10,7 +10,7 @@ class Controller extends Application {
         $this->controller = $controller;
         $this->action = $action;
         $this->view = new View();
-        $this->db = new MySQL(HOST, DBUSER, DBPASS, DBNAME);
+        //$this->db = new MySQL(HOST, DBUSER, DBPASS, DBNAME);
         //require_once(ROOT . DS . 'core' . DS .'Router.php');
     }
 

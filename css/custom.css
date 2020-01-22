@@ -9,3 +9,20 @@
 .white {
     color: white;
 }
+
+#map {
+    height: 400px;
+    width: 500px;
+}
+
+.imgFill {
+    width: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+
+.goodsImgDiv {
+    width: 100%;
+    height: 300px;
+    overflow:hidden;
+}

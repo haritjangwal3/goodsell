@@ -3,6 +3,7 @@
 class Model {
     protected $_db, $_table, $_modelName, $_softDelete = false, $_columnNames=[];
     public $id;
+    protected $_isCollection = false;
 
     public function __construct($table){
         $this->_db = DB::getInstance();
@@ -17,7 +18,10 @@ class Model {
             foreach($value as $key => $val){
                 if($key == "Field"){
                     $this->_columnNames[] = $val;
-                    $this->{$val} = null;
+                    if(!$this->_isCollection){
+                        $this->{$val} = null;
+                    }
+                        
                 }
             }
         }

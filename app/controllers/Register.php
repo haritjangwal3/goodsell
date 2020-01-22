@@ -4,7 +4,7 @@ class Register extends Controller {
     
     public function __construct($controller, $action){
         parent::__construct($controller, $action);
-        $this->load_model('Users');
+        $this->load_model('User');
         $this->view->setLayout('default');
     }
     
@@ -25,7 +25,7 @@ class Register extends Controller {
                 ]
             );
             if($validation->passed()){
-                $user = $this->UsersModel->findByUsername($_POST['username']);
+                $user = $this->UserModel->findByUsername($_POST['username']);
                 //dnd($this);
                 if(isset($user->password))
                 {
@@ -66,7 +66,7 @@ class Register extends Controller {
             );
         }
         if($validation->passed()){
-            $newUser = new Users();
+            $newUser = new User();
             $newUser->registerNewUser($_POST);
             Router::redirect('');
         }

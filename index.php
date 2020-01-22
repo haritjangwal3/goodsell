@@ -43,7 +43,9 @@ require_once(ROOT . DS . 'core' . DS . 'bootstrap.php');
 // $db = DB::getInstance();
 // $db->query('select * from users');
 if(!Session::exists(CURRENT_USER_SESSION_NAME) && Cookie::exists(REMEMBER_ME_COOKIE_NAME)){
-    Users::loginUserFromCookie();
+    User::loginUserFromCookie();
 }
 // Route the request
 Router::route($url);
+
+// get user location

@@ -1,16 +1,19 @@
 {
-    "Guest" : {
-        "denied" : {},
-        "Home" : ["*"],
-        "Register" : ["login", "register"], 
-        "Restricted" : ["*"]
+    "guest" : {
+        "denied" : {
+            "Register" : ["logout"]
+        },
+        "home" : ["*"],
+        "register" : ["login", "register"], 
+        "restricted" : ["*"]
     },
 
-    "LoggedIn" : {
+    "loggedIn" : {
         "denied" : {
-            "Register" : ["login", "register"]
+            "register" : ["login", "register"]
         },
-        "Register" : ["logout"],
-        "Tools" : ["*"]
+        "home" : ["*"],
+        "register" : ["logout"],
+        "tools" : ["*"]
     }
 }

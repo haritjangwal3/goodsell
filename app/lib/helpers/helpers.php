@@ -13,11 +13,37 @@
     }
 
     function currentUser(){
-        return Users::currentLoggedInUser();
+        return User::currentLoggedInUser();
+    }
+
+    function echo_p($val, $val2 = '', $val3 = ''){
+        $ary = [$val, $val2, $val3];
+        foreach($ary as $val){
+            echo '<pre>';
+            if($val != ''){
+                
+                var_dump($val);
+                
+            }
+            echo '</pre>';
+        }
+        
+    }
+
+    function JSalert($value){
+        if(is_object($value) || is_array($value))
+        {
+            $json =  @json_encode($value);
+            echo "<script type='text/javascript'>alert(" . $json .");</script>";
+        }
+        else {
+            
+            echo "<script>alert('Debug Objects: " . strval($value) . "' );</script>";
+        }
     }
 
     function Clog($var){
-        if(is_object($var))
+        if(is_object($var) || is_array($var))
         {
             $json =  @json_encode($var);
             echo "<script type='text/javascript'>console.log(" . $json .");</script>";
@@ -36,3 +62,5 @@
         }
         return $clean_array;
     }
+
+    
