@@ -2,6 +2,7 @@
     "Home" : "home",
     "Google" : "https://www.google.com",
     "Login" : "register/login",
+    "Sell an Item" : "home/addgood",
     "Logout" : "register/logout",
     "Tools" : {
         "My Tools" : "tools",

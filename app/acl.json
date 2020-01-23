@@ -1,7 +1,8 @@
 {
     "guest" : {
         "denied" : {
-            "Register" : ["logout"]
+            "Register" : ["logout"],
+            "Home" : ["addgood"]
         },
         "home" : ["*"],
         "register" : ["login", "register"], 
@@ -10,7 +11,7 @@
 
     "loggedIn" : {
         "denied" : {
-            "register" : ["login", "register"]
+            "Register" : ["login", "register"]
         },
         "home" : ["*"],
         "register" : ["logout"],

@@ -3,10 +3,13 @@
 class View {
     protected $_head, $_siteTitle = SITE_TITLE, $_body, $_outputBuffer, $_layout = DEFAULT_LAYOUT;
 
+    public $data = null;
     public function __construct()
     {
         
     }
+
+
 
     public function render($viewName){
         $viewArray = explode('/', $viewName);
