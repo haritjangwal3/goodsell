@@ -9,8 +9,7 @@ define('ROOT', dirname(__FILE__));
 require_once(ROOT . DS . 'config' . DS . 'config.php');
 require_once(ROOT . DS . 'app' . DS . 'lib' . DS . 'helpers' . DS. 'functions.php');
 require_once(ROOT . DS . 'core' . DS . 'MySQLDB.php'); // pre-build class for mysql
-//require_once(ROOT . DS . 'core' . DS . 'DB.php'); // custom PDO DB class
-
+require_once(ROOT . DS . 'core' . DS . 'DB.php'); // custom PDO DB class
 // autoload classes funcation
 
 function autoload($className)

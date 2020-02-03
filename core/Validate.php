@@ -11,7 +11,6 @@ class Validate {
     public function check($source, $items=[]){
         // takes a $_POST/$_GET in a source
         // takes set of requirements for the validation
-
         $this->_errors = [];
         foreach($items as $item => $rules){
             $item = Input::sanitize($item);
@@ -45,6 +44,7 @@ class Validate {
                         break;
 
                         case 'unique':
+                            
                             $check =  $this->_db->query("select {$item} from {$rule_val} where {$item} = ?", [$input_value]);
                             if($check->count()){
                                 $this->addError(["{$display} already exists. Please choose another {$display}", $item]);

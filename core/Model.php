@@ -69,7 +69,7 @@ class Model {
 
     public function update($id, $field){
         if (empty($field) || $id== '') return false;
-        return $this->_db->update($this->_table, $this->id, $field);
+        return $this->_db->update($this->_table, $id, $field);
     }
 
     public function delete($id=''){

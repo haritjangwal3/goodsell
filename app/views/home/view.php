@@ -37,7 +37,7 @@ else{
     overflow:hidden;
 }
 
-.fill {
+img {
     object-fit: cover;
     object-position: center;
 }
@@ -47,7 +47,7 @@ else{
 <?php $this->start('body');?>
     <div class="container">
         <div class="row">
-            <div class="col-8 border rounded">
+            <div class="col-12 col-sm-8 border rounded">
                 <div id="carouselExampleIndicators" class="carousel slide goodsImgDiv" data-ride="carousel">
                     <ol class="carousel-indicators">
                     <?php
@@ -96,9 +96,11 @@ else{
                     </a>
                 </div>
             </div>
-            <div class="col-4 border rounded">
+            <div class="col-12 col-sm-4 border rounded">
                 <h1 class="display-4 m-2 text-center border rounded"><?=$good->price?></h1>
                 <h1 class="text"><?=$good->good_title?></h1>
+                <br />
+                <br />
                 <h6 class="text-right p-2" style="position: absolute;bottom: 0; right:0;">By <?=$good->username?></h6>
                 <h6 class="text-right p-2 blue" style="position: absolute;bottom: 0; right:1;">Views: <?=$good->views?></h6>
             </div>
@@ -107,8 +109,7 @@ else{
             <h4 class="col-12 p-4">Details</h4>
             <h6 class="col-4">Condition: <?php if($good->good_cond == 0){ echo 'Used';} else { echo 'New'; }  ?></h6>
             <h6 class="col-4">Good Quality: <?=$good->good_quality?></h6>
-            <h6 class="col-4">Negotiable: <?php if($good->nego == 1){ echo 'Yes';} else { echo 'No'; }  ?></h6>
-            
+            <h6 class="col-4">Negotiable: <?php if($good->nego == 1){ echo 'Yes';} else { echo 'No'; }  ?></h6> 
         </div>
         <div class="row">
             <h4 class="text-right p-4">Description</h4>

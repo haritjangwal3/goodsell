@@ -62,7 +62,7 @@ class DB {
 
         $qry = "insert into {$table} ({$fieldString}) values ({$valueString})";
         if(!$this->query($qry, $values)->error()){
-            return true;
+            return $this->_lastInsertID;
         }
         return false;
     }
@@ -81,8 +81,11 @@ class DB {
         $fieldString = trim($fieldString);
         $fieldString = rtrim($fieldString, ',');
         $qry = "update {$table} set {$fieldString} where id = {$id}";
+        if($table == 'goods'){
+            $qry = "update {$table} set {$fieldString} where good_id = {$id}";
+        }
         if(!$this->query($qry, $values)->error()){
-            return true;
+            return $this->_results;
         }
         return false;
     }

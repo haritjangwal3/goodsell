@@ -2,7 +2,18 @@
 
 
 <?php $this->start('head'); ?>
+<style>
+.goodsImgDiv {
+    width: 100%;
+    height: 250px;
+    overflow:hidden;
+}
 
+img {
+    object-fit: cover;
+    object-position: center;
+}
+</style>
 <?php $this->end(); ?>
 
 <?php 
@@ -24,8 +35,8 @@ $this->start('body'); ?>
                     $imageString = $good->good_images;
                     $images = explode(', ', $imageString);
         ?>
-        <div class="col-12 col-sm-4 border rounded">
-                <div class="products ">
+        <div class="col-12 col-sm-3 border rounded">
+                <div class="products">
                         <!-- images setup START -->
                         <div id="<?=$good_id?>_carouselControls" class="carousel slide goodsImgDiv" data-ride="carousel">
                             <div class="carousel-inner">
